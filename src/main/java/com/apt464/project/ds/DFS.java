@@ -16,9 +16,15 @@ import com.apt464.project.service.Impl.DictionaryImpl;
  */
 public class DFS {
 	private static Dictionary dictionary = new DictionaryImpl();
+	
 	public static Set<String> findValidWords(String[] puzzle){
 		Set<String> words = new HashSet<String>();
+		char[][] matrix = new char[puzzle.length][];
 		
+		convertToMatrix(matrix, puzzle);
+		for(int i=0; i<puzzle.length; i++){
+			
+		}
 		// Horizontal words finding.
 		for(String s: puzzle) {
 			for(int i=0; i<s.length()-1; i++) {
@@ -37,6 +43,17 @@ public class DFS {
 		return words;
 	}
 	
+	/**
+	 * Converts String[] into char[][] matrix.
+	 * @param matrix
+	 * @param puzzle
+	 */
+	static void convertToMatrix(char[][] matrix, String[] puzzle){
+		int i = 0;
+		for(String word: puzzle){
+			matrix[i++] = word.toCharArray();
+		}
+	}
 	/**
 	 * DFS version 2
 	 * @param matrix
